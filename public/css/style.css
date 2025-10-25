@@ -1,0 +1,158 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background: #b3cde7;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 50px 20px;
+}
+
+.container {
+    background: #ffffff;
+    width: 100%;
+    max-width: 500px;
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+
+/* Forms */
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+form input[type="text"],
+form input[type="password"] {
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+form input[type="text"]:focus,
+form input[type="password"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+form button {
+    padding: 12px 18px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+form button:hover {
+    background: #0056b3;
+}
+
+
+/* Todo List */
+
+ul {
+    list-style: none;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f9f9f9;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+}
+
+li:hover {
+    transform: translateY(-2px);
+    background: #eef6ff;
+}
+
+.todo-task {
+    flex: 1;
+    margin-left: 10px;
+    font-size: 16px;
+    color: #333;
+}
+
+.done {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.buttons form {
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.buttons button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    margin-left: 5px;
+    transition: transform 0.2s;
+}
+
+.buttons button:hover {
+    transform: scale(1.2);
+}
+
+.complete-btn {
+    color: green;
+}
+
+.delete-btn {
+    color: red;
+}
+
+.edit-btn {
+    color: orange;
+}
+
+.back-btn {
+    display: inline-block;
+    margin-top: 20px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.back-btn:hover {
+    text-decoration: underline;
+}
+
+
+/* Links */
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My To-Do List</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="/css/idxstyle.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <h2>📝 My To-Do List</h2>
+        <% if (currentUser) { %>
+            <p id="welcome">Hello,
+                <%= currentUser.username %> | <a href="/logout">Logout</a></p>
+            <% } %>
+                <br>
+                <hr>
+                <br>
+                <form action="/add" method="POST">
+                    <input type="text" name="task" placeholder="Add new task..." required>
+                    <button type="submit">Add</button>
+                </form>
+
+                <ul>
+                    <% if (todos && todos.length > 0) { %>
+                        <% todos.forEach(todo => { %>
+                            <li class="<%= todo.completed ? 'done-li' : '' %>">
+                                <span class="todo-task <%= todo.completed ? 'done' : '' %>">
+                            <%= todo.task %>
+                        </span>
+                                <div class="buttons">
+                                    <form action="/complete/<%= todo._id %>" method="POST">
+                                        <button class="complete-btn" type="submit">
+                                    <%= todo.completed ? '↩️' : '✔️' %>
+                                </button>
+                                    </form>
+                                    <form action="/edit/<%= todo._id %>" method="GET">
+                                        <button class="edit-btn" type="submit">✏️</button>
+                                    </form>
+                                    <form action="/delete/<%= todo._id %>?_method=DELETE" method="POST">
+                                        <button class="delete-btn" type="submit">🗑️</button>
+                                    </form>
+                                </div>
+                            </li>
+                            <% }) %>
+                                <% } else { %>
+                                    <p style="text-align: center; color: #6b7280; padding: 10px; margin-top: 20px;">
+                                        🎉 You have no tasks! Time to add one.
+                                    </p>
+                                    <% } %>
+                </ul>
+    </div>
+</body>
+
+</html>

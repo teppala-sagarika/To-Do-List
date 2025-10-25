@@ -1,0 +1,183 @@
+                          :root {
+                             --primary-color: #5a7dff;
+                             --secondary-color: #38bdf8;
+                             --background-color: #b3cde7;
+                             --card-bg-color: #ffffff;
+                             --text-color: #374151;
+                             --border-color: #e5e7eb;
+                             --success-color: #10b981;
+                             --delete-color: #ef4444;
+                             --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.05);
+                             --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.1);
+                         }
+                         
+                         * {
+                             box-sizing: border-box;
+                             margin: 0;
+                             padding: 0;
+                             font-family: 'Roboto', sans-serif;
+                         }
+                         
+                         body {
+                             background: var(--background-color);
+                             display: flex;
+                             justify-content: center;
+                             align-items: center;
+                             min-height: 100vh;
+                             padding: 50px 20px;
+                         }
+                         
+                         .container {
+                             background: var(--card-bg-color);
+                             width: 100%;
+                             max-width: 500px;
+                             padding: 40px;
+                             border-radius: 18px;
+                             box-shadow: var(--shadow-light);
+                             transition: box-shadow 0.3s ease-in-out;
+                         }
+                         
+                         .container:hover {
+                             box-shadow: var(--shadow-hover);
+                         }
+                         
+                         h2 {
+                             text-align: center;
+                             color: var(--primary-color);
+                             margin-bottom: 35px;
+                             font-weight: 700;
+                             letter-spacing: 1px;
+                             font-size: 28px;
+                         }
+                         
+                         form {
+                             display: flex;
+                             gap: 12px;
+                             margin-bottom: 40px;
+                         }
+                         
+                         form input[type="text"] {
+                             flex: 1;
+                             padding: 14px 18px;
+                             border: 2px solid var(--border-color);
+                             border-radius: 10px;
+                             font-size: 16px;
+                             color: var(--text-color);
+                             transition: border-color 0.3s, box-shadow 0.3s;
+                         }
+                         
+                         form input[type="text"]::placeholder {
+                             color: #9ca3af;
+                         }
+                         
+                         form input[type="text"]:focus {
+                             border-color: var(--primary-color);
+                             box-shadow: 0 0 0 3px rgba(90, 125, 255, 0.2);
+                             outline: none;
+                         }
+                         
+                         form button {
+                             padding: 14px 25px;
+                             background: var(--primary-color);
+                             color: white;
+                             border: none;
+                             border-radius: 10px;
+                             cursor: pointer;
+                             font-weight: 600;
+                             font-size: 16px;
+                             transition: background 0.3s, transform 0.1s;
+                             box-shadow: 0 4px 10px rgba(90, 125, 255, 0.3);
+                         }
+                         
+                         form button:hover {
+                             background: #4a6ceb;
+                             transform: translateY(-1px);
+                         }
+                         
+                         form button:active {
+                             transform: translateY(0);
+                             box-shadow: 0 2px 5px rgba(90, 125, 255, 0.3);
+                         }
+                         
+                         ul {
+                             list-style: none;
+                         }
+                         
+                         li {
+                             display: flex;
+                             align-items: center;
+                             justify-content: space-between;
+                             background: var(--card-bg-color);
+                             padding: 15px 20px;
+                             margin-bottom: 12px;
+                             border-radius: 12px;
+                             border-left: 5px solid var(--secondary-color);
+                             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+                             transition: transform 0.2s, box-shadow 0.2s, border-left-color 0.3s, background 0.3s;
+                         }
+                         
+                         li:hover {
+                             transform: translateY(-3px);
+                             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+                             border-left-color: var(--primary-color);
+                         }
+                         
+                         .todo-task {
+                             flex: 1;
+                             margin-right: 15px;
+                             font-size: 17px;
+                             color: var(--text-color);
+                             word-break: break-word;
+                             line-height: 1.4;
+                         }
+                         
+                         .done {
+                             text-decoration: line-through 2px;
+                             color: #9ca3af;
+                             transition: all 0.3s;
+                         }
+                         
+                         .done-li {
+                             border-left: 5px solid var(--success-color) !important;
+                             background: #f0fdf4;
+                         }
+                         
+                         .done-li:hover {
+                             border-left-color: var(--success-color);
+                         }
+                         
+                         .buttons {
+                             display: flex;
+                             gap: 10px;
+                         }
+                         
+                         .buttons form {
+                             margin: 0;
+                         }
+                         
+                         .buttons button {
+                             background: none;
+                             border: none;
+                             cursor: pointer;
+                             font-size: 20px;
+                             transition: transform 0.2s, opacity 0.2s;
+                             padding: 5px;
+                             line-height: 1;
+                         }
+                         
+                         .buttons button:hover {
+                             transform: scale(1.15);
+                             opacity: 0.85;
+                         }
+                         
+                         .complete-btn {
+                             color: var(--success-color);
+                         }
+                         
+                         .delete-btn {
+                             color: var(--delete-color);
+                         }
+                         
+                         #welcome {
+                             font-size: 1.5em;
+                         }
