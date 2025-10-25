@@ -1,3 +1,4 @@
+require('dotenv').config(); // Load environment variables
 const express = require("express");
 const mongoose = require("mongoose");
 const session = require("express-session");
@@ -5,25 +6,32 @@ const passport = require("passport");
 const methodOverride = require("method-override");
 const bodyParser = require("body-parser");
 const flash = require("connect-flash");
+const MongoStore = require("connect-mongo");
 
 const User = require("./models/User");
 const todoRoutes = require("./routes/todoRoutes");
 
 const app = express();
 
-// Connect to DB
-mongoose.connect("mongodb://127.0.0.1:27017/todoDB");
+// --- Connect to MongoDB Atlas ---
+mongoose.connect(process.env.MONGODB_URI, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    })
+    .then(() => console.log("MongoDB connected ✅"))
+    .catch(err => console.log("MongoDB connection error:", err));
 
-// Middlewares
+// --- Middlewares ---
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.use(methodOverride("_method"));
 
 app.use(session({
-    secret: "secret123",
+    secret: process.env.SESSION_SECRET || "secret123",
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI }),
 }));
 
 app.use(passport.initialize());
@@ -50,5 +58,5 @@ app.use((req, res, next) => {
 // Routes
 app.use("/", todoRoutes);
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT} 🚀`));
